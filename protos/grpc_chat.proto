@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package pb;
+
+
+option go_package = ".;pb";
+
+message LoginRequest{
+  string name = 1;
+  string password = 2;
+}
+
+message LoginResponse{
+  string response = 1;
+}
+
+message ChatMessage {
+  string username = 1;
+  string chat_message = 2;
+}
+
+message MessageResponse {
+  bool delivered = 1;
+}
+
+service Chat {
+  rpc Login(LoginRequest) returns (LoginResponse);
+  rpc Chat(stream ChatMessage) returns (stream ChatMessage);
+
+}

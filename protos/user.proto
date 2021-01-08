@@ -1,0 +1,11 @@
+syntax="proto3";
+
+package pb;
+
+option go_package=".;pb";
+
+
+message User {
+  string name = 1;
+  string username = 2;
+}
